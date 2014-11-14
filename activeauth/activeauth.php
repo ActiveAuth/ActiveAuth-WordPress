@@ -9,7 +9,7 @@
  * License: GPL2
  */
 
-/*  Copyright 2014  George Velinov  (email : g.velinov@icn.bg)
+/*  Copyright 2014  ActiveAuth  (http://activeauth.me)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
