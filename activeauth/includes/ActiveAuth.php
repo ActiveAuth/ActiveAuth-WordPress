@@ -2,7 +2,7 @@
 
 class ActiveAuth
 {
-    private function _sing($username, $integration_id, $key, $prefix, $expire_after)
+    private function _sign($username, $integration_id, $key, $prefix, $expire_after)
     {
         $expire_time = time() + $expire_after;
         $account_string = base64_encode($username.'|'.$integration_id.'|'.$expire_time);
@@ -12,10 +12,10 @@ class ActiveAuth
         return $info_string.'|'.$signature;
     }
 
-    public function sing($username, $integration_id, $server_key, $application_key)
+    public function sign($username, $integration_id, $server_key, $application_key)
     {
-        $application_signature = $this->_sing($username, $integration_id, $application_key, 'APP', 3600);
-        $server_signature = $this->_sing($username, $integration_id, $server_key, 'SRV', 300);
+        $application_signature = $this->_sign($username, $integration_id, $application_key, 'APP', 3600);
+        $server_signature = $this->_sign($username, $integration_id, $server_key, 'SRV', 300);
 
         if (!$application_signature || !$server_signature) {
             return false;

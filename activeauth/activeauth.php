@@ -31,7 +31,7 @@ require_once('includes/ActiveAuth.php');
 $DuoAuthCookieName = 'aca_auth_cookie';
 $DuoSecAuthCookieName = 'aca_secure_auth_cookie';
 
-function sing_request($user, $redirect=null)
+function sign_request($user, $redirect=null)
 {
 
     if ($redirect) {
@@ -48,7 +48,7 @@ function sing_request($user, $redirect=null)
     $akey = get_option('aca_akey');
 
     $aca = new ActiveAuth();
-    $secret = $aca->sing($username, $ikey, $skey, $akey);
+    $secret = $aca->sign($username, $ikey, $skey, $akey);
 
 ?>
     <!DOCTYPE html>
@@ -156,7 +156,7 @@ function authenticate_user($user='', $username='', $password='')
     if (!is_a($user, 'WP_User')) {
         return $user;
     } else {
-        sing_request($user);
+        sign_request($user);
         exit();
     }
 
@@ -216,7 +216,7 @@ function aca_verify_auth()
 			if (aca_uri_request()) {
 				aca_set_cookie($user);
 			} else {
-				sing_request($user);
+				sign_request($user);
 			}
         }
     }
