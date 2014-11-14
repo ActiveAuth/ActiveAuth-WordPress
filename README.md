@@ -27,7 +27,7 @@ Create an integration account in <a href="http://activeauth.me">ActiveAuth.me</a
 
 <h2>1. Download plugin</h2>
 <p>
-Download the plugin. Find your wordpress installation path (/your_path/) and move ActiveAuth plugin in /your_path/wp-content/plugins/.
+Download the plugin. Find your wordpress installation path (/your_path/) and move ActiveAuth plugin (activeauth folder) in /your_path/wp-content/plugins/.
 </p>
 
 <h2>2. Login in your worpdress site</h2>

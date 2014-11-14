@@ -28,8 +28,8 @@
 require_once('includes/ActiveAuthSettings.php');
 require_once('includes/ActiveAuth.php');
 
-$DuoAuthCookieName = 'aca_auth_cookie';
-$DuoSecAuthCookieName = 'aca_secure_auth_cookie';
+$ActiveAuthCookieName = 'aca_auth_cookie';
+$ActiveSecAuthCookieName = 'aca_secure_auth_cookie';
 
 function sign_request($user, $redirect=null)
 {
