@@ -1,6 +1,6 @@
 <?php
 
-class ActiveAuthenticator
+class ActiveAuth
 {
     private function _sing($username, $integration_id, $key, $prefix, $expire_after)
     {

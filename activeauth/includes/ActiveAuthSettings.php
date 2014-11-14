@@ -1,6 +1,6 @@
 <?php
 
-class ActiveAuthenticatorSettings
+class ActiveAuthSettings
 {
     /**
      * Holds the values to be used in the fields callbacks

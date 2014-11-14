@@ -25,8 +25,8 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once('includes/ActiveAuthenticatorSettings.php');
-require_once('includes/ActiveAuthenticator.php');
+require_once('includes/ActiveAuthSettings.php');
+require_once('includes/ActiveAuth.php');
 
 $DuoAuthCookieName = 'aca_auth_cookie';
 $DuoSecAuthCookieName = 'aca_secure_auth_cookie';
@@ -47,7 +47,7 @@ function sing_request($user, $redirect=null)
     $skey = $options['aca_skey'];
     $akey = get_option('aca_akey');
 
-    $aca = new ActiveAuthenticator();
+    $aca = new ActiveAuth();
     $secret = $aca->sing($username, $ikey, $skey, $akey);
 
 ?>
@@ -125,7 +125,7 @@ function authenticate_user($user='', $username='', $password='')
         $skey = $options['aca_skey'];
         $akey = get_option('aca_akey');
 
-        $aca = new ActiveAuthenticator();
+        $aca = new ActiveAuth();
 
         $response = $_POST['2fa-verify'];
         $status = $aca->verify($response, $skey, $akey);
@@ -363,7 +363,7 @@ add_action('clear_auth_cookie', 'aca_unset_cookie', 10);
 add_filter('authenticate', 'authenticate_user', 10, 3);
 
 if(is_admin()) {
-    $my_settings_page = new ActiveAuthenticatorSettings(plugin_basename(__FILE__));
+    $my_settings_page = new ActiveAuthSettings(plugin_basename(__FILE__));
 }
 
 function aca_activation()
