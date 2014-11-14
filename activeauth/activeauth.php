@@ -176,29 +176,29 @@ function aca_enabled()
 
 function aca_set_cookie($user)
 {
-    global $DuoAuthCookieName;
-    global $DuoSecAuthCookieName;
+    global $ActiveAuthCookieName;
+    global $ActiveSecAuthCookieName;
     $options = get_option('aca-options');
     $ikey_b64 = base64_encode($options['aca_ikey']);
     $username_b64 = base64_encode($user->user_login);
     $expire = strtotime('+48 hours');
     //Create http cookie
-    $val = base64_encode(sprintf("%s|%s|%s|%s", $DuoAuthCookieName, $username_b64, $ikey_b64, $expire));
+    $val = base64_encode(sprintf("%s|%s|%s|%s", $ActiveAuthCookieName, $username_b64, $ikey_b64, $expire));
     $sig = aca_hash_hmac($val);
     $cookie = sprintf("%s|%s", $val, $sig);
-    setcookie($DuoAuthCookieName, $cookie, 0, COOKIEPATH, COOKIE_DOMAIN, false, true);
+    setcookie($ActiveAuthCookieName, $cookie, 0, COOKIEPATH, COOKIE_DOMAIN, false, true);
     if (COOKIEPATH != SITECOOKIEPATH){
-        setcookie($DuoAuthCookieName, $cookie, 0, SITECOOKIEPATH, COOKIE_DOMAIN, false, true);
+        setcookie($ActiveAuthCookieName, $cookie, 0, SITECOOKIEPATH, COOKIE_DOMAIN, false, true);
     }
 
     if (is_ssl()){
         //Create https cookie
-        $sec_val = base64_encode(sprintf("%s|%s|%s|%s", $DuoSecAuthCookieName, $username_b64, $ikey_b64, $expire));
+        $sec_val = base64_encode(sprintf("%s|%s|%s|%s", $ActiveSecAuthCookieName, $username_b64, $ikey_b64, $expire));
         $sec_sig = aca_hash_hmac($sec_val);
         $sec_cookie = sprintf("%s|%s", $sec_val, $sec_sig);
-        setcookie($DuoSecAuthCookieName, $sec_cookie, 0, COOKIEPATH, COOKIE_DOMAIN, true, true);
+        setcookie($ActiveSecAuthCookieName, $sec_cookie, 0, COOKIEPATH, COOKIE_DOMAIN, true, true);
         if (COOKIEPATH != SITECOOKIEPATH){
-            setcookie($DuoSecAuthCookieName, $sec_cookie, 0, SITECOOKIEPATH, COOKIE_DOMAIN, true, true);
+            setcookie($ActiveSecAuthCookieName, $sec_cookie, 0, SITECOOKIEPATH, COOKIE_DOMAIN, true, true);
         }
     }
 
@@ -232,24 +232,24 @@ function aca_uri_request()
 }
 
 function aca_unset_cookie(){
-    global $DuoAuthCookieName;
-    global $DuoSecAuthCookieName;
-    setcookie($DuoAuthCookieName, '', strtotime('-1 day'), COOKIEPATH, COOKIE_DOMAIN);
-    setcookie($DuoAuthCookieName, '', strtotime('-1 day'), SITECOOKIEPATH, COOKIE_DOMAIN);
-    setcookie($DuoSecAuthCookieName, '', strtotime('-1 day'), COOKIEPATH, COOKIE_DOMAIN);
-    setcookie($DuoSecAuthCookieName, '', strtotime('-1 day'), SITECOOKIEPATH, COOKIE_DOMAIN);
+    global $ActiveAuthCookieName;
+    global $ActiveSecAuthCookieName;
+    setcookie($ActiveAuthCookieName, '', strtotime('-1 day'), COOKIEPATH, COOKIE_DOMAIN);
+    setcookie($ActiveAuthCookieName, '', strtotime('-1 day'), SITECOOKIEPATH, COOKIE_DOMAIN);
+    setcookie($ActiveSecAuthCookieName, '', strtotime('-1 day'), COOKIEPATH, COOKIE_DOMAIN);
+    setcookie($ActiveSecAuthCookieName, '', strtotime('-1 day'), SITECOOKIEPATH, COOKIE_DOMAIN);
 }
 
 function aca_verify_cookie($user)
 {
-    global $DuoAuthCookieName;
-    global $DuoSecAuthCookieName;
+    global $ActiveAuthCookieName;
+    global $ActiveSecAuthCookieName;
 
-    if (is_ssl() || isset($_COOKIE[$DuoSecAuthCookieName])){
-        $duo_auth_cookie_name = $DuoSecAuthCookieName;
+    if (is_ssl() || isset($_COOKIE[$ActiveSecAuthCookieName])){
+        $duo_auth_cookie_name = $ActiveSecAuthCookieName;
     }
     else {
-        $duo_auth_cookie_name = $DuoAuthCookieName;
+        $duo_auth_cookie_name = $ActiveAuthCookieName;
     }
 
     if(!isset($_COOKIE[$duo_auth_cookie_name])){
