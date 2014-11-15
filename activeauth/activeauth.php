@@ -86,8 +86,7 @@ function sign_request($user, $redirect=null)
         <div class="wrapper">
             <header>
                 <div class="login">
-                    <h1><a href="https://wordpress.org/" title="Powered by WordPress">ActiveAuth</a></h1>
-                    <h2>ActiveAuth</h2>
+                    <h1>ActiveAuth</h1>
                 </div>
             </header>
             <section>
