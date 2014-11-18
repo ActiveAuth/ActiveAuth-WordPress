@@ -89,7 +89,7 @@ class ActiveAuthSettings
 
         add_settings_field(
             'aca_iaccount', // ID
-            'Account', // Title
+            'Integration account', // Title
             array($this, 'aca_iaccount_callback'), // Callback
             'aca-settings', // Page
             'setting_section_id' // Section
@@ -97,7 +97,7 @@ class ActiveAuthSettings
 
         add_settings_field(
             'aca_server',
-            'Server',
+            'API hostname',
             array($this, 'aca_server_callback'),
             'aca-settings',
             'setting_section_id'
@@ -105,7 +105,7 @@ class ActiveAuthSettings
 
         add_settings_field(
             'aca_ikey',
-            'Integration Key',
+            'Integration ID',
             array($this, 'aca_ikey_callback'),
             'aca-settings',
             'setting_section_id'
@@ -135,7 +135,7 @@ class ActiveAuthSettings
 
         add_settings_field(
             'aca_enabled',
-            'Enable 2FA',
+            'Enable two-factor authentication',
             array($this, 'aca_enabled_callback'),
             'aca-settings',
             'setting_section_id'
