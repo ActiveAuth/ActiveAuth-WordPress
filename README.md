@@ -28,6 +28,8 @@ Create an integration account in <a href="http://activeauth.me">ActiveAuth.me</a
 <h2>1. Download plugin</h2>
 <p>
 Download the plugin. Find your wordpress installation path (/your_path/) and move ActiveAuth plugin (activeauth folder) in /your_path/wp-content/plugins/.
+Our plugin is in official WordPress plugins repository. You can download it from there, too or directly from your WP admin panel.
+<a href="https://wordpress.org/plugins/active-auth/">Active Auth Plugin</a>
 </p>
 
 <h2>2. Login in your worpdress site</h2>
@@ -44,4 +46,5 @@ From "Enable for roles" you can choose to which user roles ActiveAuth should be 
 From "Enable2FA" you can Enable/Disable globaly ActiveAuth plugin. IMPORTANT To turn on ActiveAuth you must check this options.
 </p>
 
+From Settings->Active Auth you have access to the plugin settings
 You are ready for using ActiveAuths's two-factor authentication.
