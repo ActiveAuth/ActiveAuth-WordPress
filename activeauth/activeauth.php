@@ -4,8 +4,8 @@
  * Plugin URI: http://activeauth.me
  * Description: This plugin enables two-factor authentication for WordPress logins with text messages, phone calls or phone pushes. Create account from <a href='http://activeauth.me'>ActiveAuth</a> for getting account keys.
  * Version: 1.0
- * Author: ActiveAuth
- * Author URI: http://activeauth.me
+ * Author: ActiveScape
+ * Author URI: http://activescape.net/
  * License: GPL2
  */
 
