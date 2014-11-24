@@ -94,7 +94,7 @@ class ActiveAuthSettings
             'aca-settings', // Page
             'setting_section_id' // Section
         );
-
+/*
         add_settings_field(
             'aca_server',
             'API hostname',
@@ -102,7 +102,7 @@ class ActiveAuthSettings
             'aca-settings',
             'setting_section_id'
         );
-
+*/
         add_settings_field(
             'aca_ikey',
             'Integration ID',
@@ -174,10 +174,10 @@ class ActiveAuthSettings
 
         if(isset( $input['aca_iaccount']))
             $new_input['aca_iaccount'] = sanitize_text_field( $input['aca_iaccount'] );
-
+/*
         if(isset( $input['aca_server']))
             $new_input['aca_server'] = sanitize_text_field( $input['aca_server'] );
-
+*/
         if(isset( $input['aca_ikey']))
             $new_input['aca_ikey'] = sanitize_text_field( $input['aca_ikey'] );
 
@@ -212,6 +212,7 @@ class ActiveAuthSettings
     /**
      * Get the settings option array and print one of its values
      */
+/*
     public function aca_server_callback()
     {
         printf(
@@ -219,7 +220,7 @@ class ActiveAuthSettings
             isset($this->options['aca_server']) ? esc_attr($this->options['aca_server']) : ''
         );
     }
-
+*/
     /**
      * Get the settings option array and print one of its values
      */

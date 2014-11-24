@@ -41,7 +41,8 @@ function sign_request($user, $redirect=null)
     $options = get_option('aca-options');
 
     $username = $user->user_email;
-    $server = $options['aca_server'];
+    //$server = $options['aca_server'];
+    $server = 'activeauth.me';
     $ikey = $options['aca_ikey'];
     $iaccount = $options['aca_iaccount'];
     $skey = $options['aca_skey'];
@@ -165,8 +166,7 @@ function aca_enabled()
 {
     $options = get_option('aca-options');
     if ($options['aca_enabled'] == 1) {
-        if ($options['aca_ikey'] != '' && $options['aca_skey'] != '' &&
-            $options['aca_server'] != '' && $options['aca_iaccount'] != '') {
+        if ($options['aca_ikey'] != '' && $options['aca_skey'] != '' && $options['aca_iaccount'] != '') {
             return true;
         }
     }

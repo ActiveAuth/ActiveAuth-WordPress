@@ -37,7 +37,6 @@ Our plugin is in official WordPress plugins repository. You can download it from
 Go to Plugins->Installed plugins. Find ActiveAuth plugin and activate it. After activation you will see settings and deactivate links. Go to settings. Here you have to enter your keys:
 <ul>
   <li>Account - is you email address from integration account in ActiveAuth</li>
-  <li>Server - if not specily enter activeauth.me</li>
   <li>Integration key - your integration key from ActiveAuth</li>
   <li>Secret key - your secret key from ActiveAuth</li>
 </ul>
